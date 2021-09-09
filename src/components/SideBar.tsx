@@ -6,11 +6,8 @@ interface GenreResponseProps {
   name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
   title: string;
 }
-interface IProps_Square {
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
 
-export function SideBar({ onClick }) {
+export function SideBar({ onClick }: any) {
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
   const [selectedGenreId, setSelectedGenreId] = useState(1);
 

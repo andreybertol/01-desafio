@@ -45,6 +45,7 @@ export function App() {
     api.get<GenreResponseProps>(`genres/${selectedGenreId}`).then(response => {
       setSelectedGenre(response.data);
     })
+
   }, [selectedGenreId]);
 
   function handleClickButton(id: number) {
