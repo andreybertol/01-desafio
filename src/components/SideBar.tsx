@@ -8,7 +8,7 @@ interface GenreResponseProps {
   title: string;
 }
 
-export function SideBar({ onClick }: any) {
+export function SideBar({ changeGenreId }: any) {
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
   const [selectedGenreId, setSelectedGenreId] = useState(1);
 
@@ -17,6 +17,10 @@ export function SideBar({ onClick }: any) {
       setGenres(response.data);
     });
   }, []);
+
+  function handleClickButton(id: number) {
+    setSelectedGenreId(id);
+  }
 
   return (
     <nav className="sidebar">
@@ -28,7 +32,7 @@ export function SideBar({ onClick }: any) {
             key={String(genre.id)}
             title={genre.title}
             iconName={genre.name}
-            onClick={() => { onClick(genre.id) }}
+            onClick={() => { handleClickButton(genre.id); changeGenreId(genre.id) }}
             selected={selectedGenreId === genre.id}
           />
         ))}
